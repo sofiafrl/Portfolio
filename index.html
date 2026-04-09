@@ -132,6 +132,28 @@
       right: 28%;
     }
 
+    .lang-toggle {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: inherit;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
 
 
     /* HELLO HERO */
@@ -916,13 +938,13 @@
     <!-- NAV -->
     <nav>
       <div class="nav-logo" title="Home" onclick="window.scrollTo({top:0,behavior:'smooth'})"></div>
-
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">PT</button>
     </nav>
 
     <!-- HELLO HERO -->
     <div class="hello-section">
-      <div class="hello-word" id="helloWord">hello</div>
-      <div class="hello-sub">IOS DEVELOPER | COMPUTER ENGINEERING @ UFRGS | apple developer academy</div>
+      <div class="hello-word" id="helloWord" data-i18n="helloWord">hello</div>
+      <div class="hello-sub" data-i18n="helloSub">IOS DEVELOPER | COMPUTER ENGINEERING @ UFRGS | apple developer academy</div>
     </div>
 
     <!-- PROFILE CARD -->
@@ -943,7 +965,7 @@
         <div class="profile-info">
           <div class="profile-name">Sofia Leitão</div>
           <div class="profile-meta">
-            <div class="meta-pill">
+            <div class="meta-pill" data-i18n="availableForWork">
               <div class="status-dot"></div>
               Available for work
             </div>
@@ -959,25 +981,25 @@
         </div>
       </div>
 
-      <p class="profile-bio">
+      <p class="profile-bio" data-i18n="profileBio">
         A fan of smooth experiences and agile thinking.
       </p>
 
       <div class="email-hint" id="emailHint" onclick="copyEmail()" title="Click or press E to copy email">
         <span class="key-badge">E</span>
-        <span class="email-hint-text">Press <strong>E</strong> to copy email address</span>
+        <span class="email-hint-text" data-i18n-html="emailHintText">Press <strong>E</strong> to copy email address</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="opacity:.45;flex-shrink:0">
           <rect x="1" y="3" width="9" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2" />
           <path d="M4 3V2.5A1.5 1.5 0 015.5 1h5A1.5 1.5 0 0112 2.5v7A1.5 1.5 0 0110.5 11H10" stroke="currentColor"
             stroke-width="1.2" />
         </svg>
-        <span class="email-copied" id="emailCopied">Copied!</span>
+        <span class="email-copied" id="emailCopied" data-i18n="emailCopied">Copied!</span>
       </div>
     </div>
 
     <!-- STACK -->
     <div class="card reveal">
-      <div class="section-label">Stack</div>
+      <div class="section-label" data-i18n="stackLabel">Stack</div>
       <div class="stack-grid">
 
         <div class="tech-chip">
@@ -1025,14 +1047,14 @@
 
     <!-- APPS -->
     <div class="card reveal" id="ventures">
-      <div class="section-label">Apps</div>
+      <div class="section-label" data-i18n="appsLabel">Apps</div>
       <div class="apps-grid">
 
         <div class="app-card" onclick="openModal('grover')">
-          <div class="app-tag">Swift Student Challenge</div>
+          <div class="app-tag" data-app-tag="grover">Swift Student Challenge</div>
           <div class="app-icon"><img src="grover.png" alt="A Bit of Grover's Day"></div>
           <div class="app-name">A Bit of Grover's Day</div>
-          <div class="app-ext-row">
+          <div class="app-ext-row" data-i18n="learnMore">
             <svg viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -1042,10 +1064,10 @@
         </div>
 
         <div class="app-card" onclick="openModal('nikki')">
-          <div class="app-tag">iOS</div>
+          <div class="app-tag" data-app-tag="nikki">iOS</div>
           <div class="app-icon"><img src="Nikki.png" alt="Nikki Journal"></div>
           <div class="app-name">Nikki Journal</div>
-          <div class="app-ext-row">
+          <div class="app-ext-row" data-i18n="learnMore">
             <svg viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -1055,10 +1077,10 @@
         </div>
 
         <div class="app-card" onclick="openModal('glance')">
-          <div class="app-tag">iOS</div>
+          <div class="app-tag" data-app-tag="glance">iOS</div>
           <div class="app-icon"><img src="glance.png" alt="Glance IRL"></div>
           <div class="app-name">Glance IRL</div>
-          <div class="app-ext-row">
+          <div class="app-ext-row" data-i18n="learnMore">
             <svg viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -1068,10 +1090,10 @@
         </div>
 
         <div class="app-card" onclick="openModal('untooth')">
-          <div class="app-tag">iOS</div>
+          <div class="app-tag" data-app-tag="untooth">iOS</div>
           <div class="app-icon"><img src="unTooth.png" alt="UnToothAble"></div>
           <div class="app-name">UnToothAble: Endless Runner</div>
-          <div class="app-ext-row">
+          <div class="app-ext-row" data-i18n="learnMore">
             <svg viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -1111,15 +1133,15 @@
 
         <p class="modal-bio" id="modalBio"></p>
 
-        <div class="modal-section-label">Team</div>
+        <div class="modal-section-label" data-i18n="teamLabel">Team</div>
         <div class="modal-team" id="modalTeam"></div>
       </div>
     </div>
 
     <!-- PERSONAL -->
     <div class="card reveal">
-      <div class="section-label">Personal</div>
-      <p class="personal-text">
+      <div class="section-label" data-i18n="personalLabel">Personal</div>
+      <p class="personal-text" data-i18n="personalText">
         You can always find me drinking coffee, sparkling water or chimarrão. Somewhere between engineering school,
         coding and exploring quantum computing, I make time for books and music - often at a much higher volume than it
         should be. And I am always available to bring order to any spreadsheet chaos or to untangle a mess of wires.
@@ -1129,7 +1151,7 @@
 
     <!-- CONTACT ME -->
     <div class="card reveal" id="contact">
-      <div class="section-label">Contact me</div>
+      <div class="section-label" data-i18n="contactLabel">Contact me</div>
       <div class="social-row">
 
         <a href="https://www.linkedin.com/in/sofiafleitao" target="_blank" rel="noopener" class="social-link">
@@ -1165,67 +1187,178 @@
     <!-- SIGNATURE -->
     <div class="signature reveal">
       <div class="sig-mark">sl.</div>
-      <div class="sig-year">© 2025 — Made with care</div>
+      <div class="sig-year" data-i18n="signature">© 2025 — Made with care</div>
     </div>
 
   </div>
 
   <script>
     /* ── APP DATA ── */
+    const translations = {
+      en: {
+        pageTitle: 'Sofia Leitão — iOS Developer',
+        helloWord: 'hello',
+        helloSub: 'IOS DEVELOPER | COMPUTER ENGINEERING @ UFRGS | apple developer academy',
+        availableForWork: '<div class="status-dot"></div>Available for work',
+        profileBio: 'A fan of smooth experiences and agile thinking.',
+        emailHintText: 'Press <strong>E</strong> to copy email address',
+        emailCopied: 'Copied!',
+        stackLabel: 'Stack',
+        appsLabel: 'Apps',
+        learnMore: 'Learn more',
+        teamLabel: 'Team',
+        personalLabel: 'Personal',
+        personalText: 'You can always find me drinking coffee, sparkling water or chimarrão. Somewhere between engineering school, coding and exploring quantum computing, I make time for books and music - often at a much higher volume than it should be. And I am always available to bring order to any spreadsheet chaos or to untangle a mess of wires. Always.',
+        contactLabel: 'Contact me',
+        signature: '© 2025 — Made with care',
+        modalDownload: 'Download',
+        langButton: 'PT'
+      },
+      pt: {
+        pageTitle: 'Sofia Leitão — Desenvolvedora iOS',
+        helloWord: 'olá',
+        helloSub: 'DESENVOLVEDORA IOS | ENGENHARIA DE COMPUTAÇÃO @ UFRGS | apple developer academy',
+        availableForWork: '<div class="status-dot"></div>Disponível para trabalho',
+        profileBio: 'Fã de experiências fluidas e de pensamento ágil.',
+        emailHintText: 'Pressione <strong>E</strong> para copiar o e-mail',
+        emailCopied: 'Copiado!',
+        stackLabel: 'Stack',
+        appsLabel: 'Apps',
+        learnMore: 'Saiba mais',
+        teamLabel: 'Equipe',
+        personalLabel: 'Pessoal',
+        personalText: 'Você sempre vai me encontrar tomando café, água com gás ou chimarrão. Em algum lugar entre a faculdade de engenharia, programar e explorar computação quântica, eu separo tempo para livros e música, quase sempre em um volume bem mais alto do que deveria. E estou sempre pronta para colocar ordem em qualquer caos de planilhas ou desembaraçar uma bagunça de fios. Sempre.',
+        contactLabel: 'Contato',
+        signature: '© 2025 — Feito com carinho',
+        modalDownload: 'Baixar',
+        langButton: 'EN'
+      }
+    };
+
     const apps = {
       grover: {
-        tag: 'Swift Student Challenge',
+        tag: {
+          en: 'Swift Student Challenge',
+          pt: 'Swift Student Challenge'
+        },
         icon: 'grover.png',
         name: "A Bit of Grover's Day",
         link: null,
-        bio: 'An interactive experience about guiding Grover, a qubit, in his daily routine to learn key concepts of quantum physics and quantum computing. Suitable for everyone interested in learning about the topic, no previous knowledge required.',
+        bio: {
+          en: 'An interactive experience about guiding Grover, a qubit, in his daily routine to learn key concepts of quantum physics and quantum computing. Suitable for everyone interested in learning about the topic, no previous knowledge required.',
+          pt: 'Uma experiência interativa sobre guiar Grover, um qubit, em sua rotina diária para aprender conceitos fundamentais de física quântica e computação quântica. Indicada para qualquer pessoa interessada no tema, sem necessidade de conhecimento prévio.'
+        },
         team: [
-          { initials: 'SL', name: 'Sofia Leitão', role: 'Developer & Designer' },
+          { initials: 'SL', name: 'Sofia Leitão', role: { en: 'Developer & Designer', pt: 'Desenvolvedora e Designer' } },
         ]
       },
       nikki: {
-        tag: 'iOS',
+        tag: {
+          en: 'iOS',
+          pt: 'iOS'
+        },
         icon: 'Nikki.png',
         name: 'Nikki Journal',
         link: 'https://apps.apple.com/br/app/nikki-journal/id6756323938?l=en-GB',
-        bio: 'Discover a new way of journaling. In an immersive scenario inspired by Japanese gardens, transform your scraps with pictures, music, drawings and stickers in a 3D origami and place it in a Sakura tree. You can revisit and edit them anytime you want. Your memory collection that grows with you.',
+        bio: {
+          en: 'Discover a new way of journaling. In an immersive scenario inspired by Japanese gardens, transform your scraps with pictures, music, drawings and stickers in a 3D origami and place it in a Sakura tree. You can revisit and edit them anytime you want. Your memory collection that grows with you.',
+          pt: 'Descubra uma nova forma de registrar memórias. Em um cenário imersivo inspirado em jardins japoneses, transforme seus recortes com fotos, músicas, desenhos e adesivos em um origami 3D e coloque-o em uma árvore de sakura. Você pode revisitar e editar tudo quando quiser. Uma coleção de memórias que cresce com você.'
+        },
         team: [
-          { initials: 'SL', name: 'Sofia Leitão', role: 'Developer & Designer' },
-          { initials: 'MG', name: 'Martina Gama', role: 'Designer' },
-          { initials: 'AF', name: 'Alex Fraga', role: 'Developer' },
-          { initials: 'RT', name: 'Rafael Toneto', role: 'Developer' },
-          { initials: 'GB', name: 'Gustavo Bassani', role: 'Developer' },
+          { initials: 'SL', name: 'Sofia Leitão', role: { en: 'Developer & Designer', pt: 'Desenvolvedora e Designer' } },
+          { initials: 'MG', name: 'Martina Gama', role: { en: 'Designer', pt: 'Designer' } },
+          { initials: 'AF', name: 'Alex Fraga', role: { en: 'Developer', pt: 'Desenvolvedor' } },
+          { initials: 'RT', name: 'Rafael Toneto', role: { en: 'Developer', pt: 'Desenvolvedor' } },
+          { initials: 'GB', name: 'Gustavo Bassani', role: { en: 'Developer', pt: 'Desenvolvedor' } },
         ]
       },
       glance: {
-        tag: 'iOS',
+        tag: {
+          en: 'iOS',
+          pt: 'iOS'
+        },
         icon: 'glance.png',
         name: 'Glance IRL',
         link: 'https://apps.apple.com/br/app/glance-irl/id6752352458?l=en-GB',
-        bio: 'Discover the hottest events near you with the interactive heat map, take a look at who\'s going and meet with just a glance. Instead of endless swipes and chats, we focus on what really matters: living experiences together. Like someone\'s vibe? Send a glance, if the vibes are mutual, more details will unlock.',
+        bio: {
+          en: 'Discover the hottest events near you with the interactive heat map, take a look at who\'s going and meet with just a glance. Instead of endless swipes and chats, we focus on what really matters: living experiences together. Like someone\'s vibe? Send a glance, if the vibes are mutual, more details will unlock.',
+          pt: 'Descubra os eventos mais interessantes perto de você com o mapa de calor interativo, veja quem vai estar lá e conheça pessoas com apenas um glance. Em vez de deslizes e conversas sem fim, o foco está no que realmente importa: viver experiências juntos. Curtiu a vibe de alguém? Envie um glance e, se a conexão for mútua, mais detalhes serão desbloqueados.'
+        },
         team: [
-          { initials: 'LC', name: 'Luisa Cecilia Pinto', role: 'Designer' },
-          { initials: 'SL', name: 'Sofia Leitão', role: 'Developer' },
-          { initials: 'DC', name: 'Diogo Camargo', role: 'Developer' },
-          { initials: 'JF', name: 'Julia Fazenda', role: 'Developer' },
-          { initials: 'RS', name: 'Rodrigo Sandler', role: 'Developer' },
+          { initials: 'LC', name: 'Luisa Cecilia Pinto', role: { en: 'Designer', pt: 'Designer' } },
+          { initials: 'SL', name: 'Sofia Leitão', role: { en: 'Developer', pt: 'Desenvolvedora' } },
+          { initials: 'DC', name: 'Diogo Camargo', role: { en: 'Developer', pt: 'Desenvolvedor' } },
+          { initials: 'JF', name: 'Julia Fazenda', role: { en: 'Developer', pt: 'Desenvolvedora' } },
+          { initials: 'RS', name: 'Rodrigo Sandler', role: { en: 'Developer', pt: 'Desenvolvedor' } },
         ]
       },
       untooth: {
-        tag: 'iOS',
+        tag: {
+          en: 'iOS',
+          pt: 'iOS'
+        },
         icon: 'unTooth.png',
         name: 'UnToothAble: Endless Runner',
         link: 'https://apps.apple.com/br/app/untoothable-endless-runner/id6760667597?l=en-GB',
-        bio: "Run, dodge and survive as long as you can! Cross unique environments and avoid enemies as this freshly lost tooth that doesn't want to get caught by the Tooth Fairy.",
+        bio: {
+          en: "Run, dodge and survive as long as you can! Cross unique environments and avoid enemies as this freshly lost tooth that doesn't want to get caught by the Tooth Fairy.",
+          pt: 'Corra, desvie e sobreviva o máximo que puder! Atravesse ambientes únicos e evite inimigos como esse dentinho recém-caído que não quer ser pego pela Fada do Dente.'
+        },
         team: [
-          { initials: 'GH', name: 'Giovana Hossein', role: 'Designer' },
-          { initials: 'SL', name: 'Sofia Leitão', role: 'Developer' },
-          { initials: 'AC', name: 'Antonio Costa', role: 'Developer' },
-          { initials: 'RT', name: 'Rafael Toneto', role: 'Developer' },
-          { initials: 'RF', name: 'Richard Fagundes', role: 'Developer' },
+          { initials: 'GH', name: 'Giovana Hossein', role: { en: 'Designer', pt: 'Designer' } },
+          { initials: 'SL', name: 'Sofia Leitão', role: { en: 'Developer', pt: 'Desenvolvedora' } },
+          { initials: 'AC', name: 'Antonio Costa', role: { en: 'Developer', pt: 'Desenvolvedor' } },
+          { initials: 'RT', name: 'Rafael Toneto', role: { en: 'Developer', pt: 'Desenvolvedor' } },
+          { initials: 'RF', name: 'Richard Fagundes', role: { en: 'Developer', pt: 'Desenvolvedor' } },
         ]
       }
     };
+
+    let currentLanguage = localStorage.getItem('portfolio-language') || 'en';
+
+    function getCurrentText(value) {
+      return typeof value === 'string' ? value : value[currentLanguage];
+    }
+
+    function applyLanguage(lang) {
+      currentLanguage = lang;
+      localStorage.setItem('portfolio-language', lang);
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.title = translations[lang].pageTitle;
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        el.textContent = translations[lang][key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.dataset.i18nHtml;
+        el.innerHTML = translations[lang][key];
+      });
+
+      const availableEl = document.querySelector('[data-i18n="availableForWork"]');
+      if (availableEl) {
+        availableEl.innerHTML = translations[lang].availableForWork;
+      }
+
+      document.querySelectorAll('[data-app-tag]').forEach((el) => {
+        const app = apps[el.dataset.appTag];
+        if (app) el.textContent = getCurrentText(app.tag);
+      });
+
+      const modalLink = document.getElementById('modalLink');
+      modalLink.childNodes[0].textContent = `${translations[lang].modalDownload} `;
+
+      const toggle = document.getElementById('langToggle');
+      toggle.textContent = translations[lang].langButton;
+      toggle.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
+
+      const modalOverlay = document.getElementById('modalOverlay');
+      if (modalOverlay.classList.contains('open')) {
+        const openAppId = modalOverlay.dataset.appId;
+        if (openAppId) openModal(openAppId);
+      }
+    }
 
     function openModal(id) {
       const app = apps[id];
@@ -1234,9 +1367,10 @@
       const iconEl = document.getElementById('modalIcon');
       iconEl.innerHTML = `<img src="${app.icon}" alt="${app.name}">`;
 
-      document.getElementById('modalTag').textContent = app.tag;
+      document.getElementById('modalOverlay').dataset.appId = id;
+      document.getElementById('modalTag').textContent = getCurrentText(app.tag);
       document.getElementById('modalName').textContent = app.name;
-      document.getElementById('modalBio').textContent = app.bio;
+      document.getElementById('modalBio').textContent = getCurrentText(app.bio);
 
       const linkEl = document.getElementById('modalLink');
       if (app.link) {
@@ -1252,7 +1386,7 @@
         <div class="team-avatar">${m.initials}</div>
         <div class="team-info">
           <div class="team-name">${m.name}</div>
-          <div class="team-role">${m.role}</div>
+          <div class="team-role">${getCurrentText(m.role)}</div>
         </div>
       </div>
     `).join('');
@@ -1263,6 +1397,7 @@
 
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('open');
+      delete document.getElementById('modalOverlay').dataset.appId;
       document.body.style.overflow = '';
     }
 
@@ -1317,6 +1452,12 @@
       helloEl.style.transform = `translate(${dx}px,${dy}px)`;
       helloEl.style.transition = 'transform 0.5s ease';
     });
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      applyLanguage(currentLanguage === 'en' ? 'pt' : 'en');
+    });
+
+    applyLanguage(currentLanguage);
   </script>
 </body>
 
